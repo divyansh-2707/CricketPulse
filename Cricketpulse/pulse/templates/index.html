@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CricketPulse - T20 Score Predictor</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #1e3c72, #2a5298); /* Clean gradient */
+            color: #f5f5f5; /* Light font color */
+            height: 100vh;
+            margin: 0;
+        }
+
+        .navbar {
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        .navbar-brand {
+            color: white !important;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        .card {
+            background: rgba(0, 0, 0, 0.6); /* Transparent card */
+            border-radius: 15px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #f5f5f5;
+        }
+
+        .form-control,
+        .form-select {
+            background: rgba(255, 255, 255, 0.8); /* Light input background */
+        }
+
+        .btn-success {
+            background-color: #28a745;
+            border-color: #28a745;
+        }
+
+        .btn-success:hover {
+            background-color: #218838;
+            border-color: #1e7e34;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">CricketPulse</a>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h1 class="text-center">CricketPulse - T20 Score Predictor</h1>
+        <div class="card shadow mt-4 p-4 text-light">
+            <form action="result" id="prediction-form">
+
+                <div class="mb-3">
+                    <label for="batting-team" class="form-label">Batting Team</label>
+                    <select id="batting-team" name="batting-team" class="form-select" required>
+                        <option value="">Select Batting Team</option>
+                        <option value="Sri Lanka">Sri Lanka</option>
+                        <option value="New Zealand">New Zealand</option>
+                        <option value="Bangladesh">Bangladesh</option>
+                        <option value="England">England</option>
+                        <option value="India">India</option>
+                        <option value="Australia">Australia</option>
+                        <option value="West Indies">West Indies</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="bowling-team" class="form-label">Bowling Team</label>
+                    <select id="bowling-team" name="bowling-team" class="form-select" required>
+                        <option value="">Select Bowling Team</option>
+                        <option value="Sri Lanka">Sri Lanka</option>
+                        <option value="New Zealand">New Zealand</option>
+                        <option value="Bangladesh">Bangladesh</option>
+                        <option value="England">England</option>
+                        <option value="India">India</option>
+                        <option value="Australia">Australia</option>
+                        <option value="West Indies">West Indies</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="venue" class="form-label">Venue</label>
+                    <select id="venue" name="venue" class="form-select" required>
+                        <option value="">Select Venue</option>
+                        <option value="Melbourne">Melbourne</option>
+                        <option value="Adelaide">Adelaide</option>
+                        <option value="Mount Maunganui">Mount Maunganui</option>
+                        <option value="Lauderhill">Lauderhill</option>
+                        <option value="Sydney">Sydney</option>
+                        <option value="Wellington">Wellington</option>
+                        <option value="Auckland">Auckland</option>
+                        <option value="Hamilton">Hamilton</option>
+                        <option value="Colombo">Colombo</option>
+                        <option value="Manchester">Manchester</option>
+                        <option value="Mumbai">Mumbai</option>
+                        <option value="Dhaka">Dhaka</option>
+                        <option value="Gros Islet">Gros Islet</option>
+                        <option value="Christchurch">Christchurch</option>
+                        <option value="Southampton">Southampton</option>
+                        <option value="Ahmedabad">Ahmedabad</option>
+                        <option value="Dubai">Dubai</option>
+                        <option value="London">London</option>
+                        <option value="Barbados">Barbados</option>
+                        <option value="Nottingham">Nottingham</option>
+                        <option value="St Lucia">St Lucia</option>
+                        <option value="Pallekele">Pallekele</option>
+                        <option value="Mirpur">Mirpur</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="current-score" class="form-label">Current Score</label>
+                    <input type="number" name="current-score" id="current-score" class="form-control" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="overs-done" class="form-label">Overs Done (0.1 - 20.0)</label>
+                    <input type="number" name="overs-done" id="overs-done" class="form-control" step="0.1" min="0.1" max="20.0" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="wickets-out" class="form-label">Wickets Out</label>
+                    <input type="number" name="wickets-out" id="wickets-out" class="form-control" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="run-scored-five-overs" class="form-label">Runs Scored in last 5 overs</label>
+                    <input type="number" name="run-scored-five-overs" id="run-scored-five-overs" step="0.01" class="form-control" required>
+                </div>
+
+                <button type="submit" class="btn btn-success w-100">Predict Score</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script>
+        document.getElementById("prediction-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const form = event.target;
+
+            if (form.checkValidity()) {
+                alert("Form submitted successfully! Your score prediction is being processed.");
+                form.submit();
+            } else {
+                alert("Please fill out all fields correctly before submitting the form.");
+            }
+        });
+    </script>
+</body>
+
+</html>
