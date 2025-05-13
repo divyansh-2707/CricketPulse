@@ -1,82 +1,98 @@
-# 🏏 CricketPulse – T20 Match Score Predictor
+🏏 CricketPulse – Real-Time T20 Score Predictor
 
-Overview
-CricketPulse is a machine learning-powered real-time score prediction system tailored for T20 cricket matches. Leveraging historical match data and real-time inputs, it provides accurate and dynamic forecasts, enhancing the viewing experience for fans and offering strategic insights for teams.
+CricketPulse is a machine learning-powered web application designed to predict T20 cricket match scores using real-time match data and advanced ML algorithms.
+
+📍 College Project Details
+
+College: G.L. Bajaj Institute of Technology and Management
+
+Student Name: Divyansh Singh
+
+Course & Branch: B.Tech CS (AIML)
+
+Theme: Sports
+
+⚠️ Problem Statement
+
+T20 cricket score prediction is complex due to fast-paced gameplay, sudden wicket losses, changing run rates, and varying pitch conditions. Most existing tools are simplistic and ignore this dynamic interplay.
 
 🎯 Objectives
-Real-Time Prediction: Develop a model that predicts the final score of a T20 match based on live match data.
 
-Interactive Interface: Create a web application for users to input match details and receive predictions.
+Build an ML model to predict T20 scores using real-time inputs (overs, runs, wickets, etc.)
 
-Advanced Modeling: Utilize machine learning algorithms like XGBoost for accurate forecasting.
+Create an intuitive web interface for user interaction.
 
-Seamless Integration: Implement a full-stack solution using Django for the backend and modern web technologies for the frontend.
+Integrate frontend, backend, and ML to provide seamless live predictions.
 
-🛠️ Tools & Technologies
-Backend: Python, Django
+💡 Motivation
 
-Frontend: HTML5, CSS3, JavaScript
+The explosive growth of T20 cricket calls for better analytics and prediction systems. This project combines a love for cricket with the power of XGBoost and ML to deliver a smart, predictive solution.
 
-Machine Learning: XGBoost, Scikit-learn
+🛠️ Tech Stack
 
-Data Handling: Pandas, NumPy
+🔹 Frontend
 
-Deployment: Heroku / AWS / Localhost
+HTML, CSS, JavaScript
 
-📊 Data Sources
-Historical Match Data: Collected from various cricket databases and APIs.
-
-Real-Time Match Inputs: Gathered using web scraping techniques and APIs during live matches.
-GitHub
-Apple
-
-⚙️ Approach
-1. Data Collection & Preprocessing
-Gather historical match data, including features like team names, city, runs scored, wickets taken, overs bowled, etc.
-
-Clean and preprocess the data to handle missing values, encode categorical variables, and engineer relevant features.
-GitHub
-+3
-GitHub
-+3
-Medium
-+3
-
-2. Feature Engineering
-Calculate features such as current run rate, balls left, wickets left, and last five overs' performance.
-
-Ensure the dataset is structured to capture the dynamic nature of T20 matches.
-Medium
-+1
-Medium
-+1
-
-3. Model Development
-Train an XGBoost regressor model using the processed dataset.
-
-Tune hyperparameters to optimize model performance.
-
-Evaluate the model using metrics like R² score and Mean Absolute Error.
-GitHub
-+4
-GitHub
-+4
-GitHub
-+4
-
-4. Web Application Development
-Develop a Django-based web application to serve the model.
-
-Implement user-friendly forms for inputting match details.
-
-Display real-time predictions and insights on the frontend.
-
-🚀 Installation & Usage
-Prerequisites
-Python 3.x
+🔹 Backend
 
 Django
 
+🔹 Machine Learning
+
+Python
+
+Pandas
+
 XGBoost
 
-Pandas, NumPy, Scikit-learn
+Pickle (model serialization)
+
+🔍 Project Workflow
+
+Fetch match data (from Cricksheet/YAML)
+
+Convert YAML to Pandas DataFrame
+
+Data Cleaning & Processing
+
+Exploratory Data Analysis (EDA)
+
+Train-Test Split
+
+Feature Engineering (OneHotEncoding, Scaling)
+
+Model Training using XGBoost
+
+Save model with Pickle
+
+Backend integration with Django
+
+Web UI for user input and live predictions
+
+📈 Results
+
+Functional UI for user input of match conditions
+
+Real-time output: Predicted T20 match score
+
+Evaluation Metrics:
+
+R² Score
+
+Mean Absolute Error (MAE)
+
+🚀 Future Scope
+
+Live Data Integration: Fetch real-time match data during live games.
+
+Support for ODIs and Tests: Expand beyond T20 format.
+
+Advanced Features: Include weather, player form, pitch reports.
+
+Mobile App: Build a mobile version of CricketPulse.
+
+🙌 Acknowledgements
+
+Thanks to faculty, peers, and open-source contributors for guidance and support throughout the development of CricketPulse.
+
