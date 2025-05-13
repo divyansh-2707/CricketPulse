@@ -1,98 +1,74 @@
-🏏 CricketPulse – Real-Time T20 Score Predictor
+# 🏏 CricketPulse – Real-Time T20 Score Predictor
 
-CricketPulse is a machine learning-powered web application designed to predict T20 cricket match scores using real-time match data and advanced ML algorithms.
+CricketPulse is a machine learning-powered web application designed to predict T20 cricket match scores using real-time match data and advanced ML algorithms. It helps fans, analysts, and teams make better decisions during a game using dynamic and data-driven predictions.
 
-📍 College Project Details
 
-College: G.L. Bajaj Institute of Technology and Management
 
-Student Name: Divyansh Singh
+## ⚠️ Problem Statement
 
-Course & Branch: B.Tech CS (AIML)
+Predicting scores in T20 cricket is challenging due to:
 
-Theme: Sports
+- Rapid game dynamics
+- Sudden wicket losses
+- Changing run rates
+- Diverse pitch and ground conditions
 
-⚠️ Problem Statement
+Most existing tools fail to handle this complexity. CricketPulse addresses this gap with a robust ML-based prediction model.
 
-T20 cricket score prediction is complex due to fast-paced gameplay, sudden wicket losses, changing run rates, and varying pitch conditions. Most existing tools are simplistic and ignore this dynamic interplay.
+---
 
-🎯 Objectives
+## 🎯 Objectives
 
-Build an ML model to predict T20 scores using real-time inputs (overs, runs, wickets, etc.)
+- Build a machine learning model to predict T20 match scores using live inputs like overs, runs, and wickets.
+- Design a user-friendly web interface for input and output.
+- Integrate real-time ML predictions with a functional web app using modern tech stacks.
 
-Create an intuitive web interface for user interaction.
+---
 
-Integrate frontend, backend, and ML to provide seamless live predictions.
 
-💡 Motivation
 
-The explosive growth of T20 cricket calls for better analytics and prediction systems. This project combines a love for cricket with the power of XGBoost and ML to deliver a smart, predictive solution.
+## 🛠️ Tech Stack
 
-🛠️ Tech Stack
+### 🔹 Frontend
+- HTML
+- CSS
+- JavaScript
 
-🔹 Frontend
+### 🔹 Backend
+- Django
 
-HTML, CSS, JavaScript
+### 🔹 Machine Learning
+- Python
+- Pandas
+- XGBoost
+- Pickle (for model serialization)
 
-🔹 Backend
+---
 
-Django
+## 🔄 Workflow
 
-🔹 Machine Learning
+1. **Data Acquisition**: Fetch YAML-format data from Cricksheet
+2. **Conversion**: YAML → Pandas DataFrame
+3. **Data Cleaning & Processing**
+4. **EDA**: Explore and visualize data
+5. **Train-Test Split**
+6. **Feature Engineering**: OneHotEncoding, Scaling
+7. **Model Training**: XGBoost
+8. **Model Saving**: Store model using Pickle
+9. **Integration**: Django backend loads model and serves predictions
+10. **UI Interaction**: Frontend takes user input and shows predicted score
 
-Python
+---
 
-Pandas
+## 📊 Results
 
-XGBoost
+- Clean UI for users to enter match conditions (team, overs, runs, wickets, venue)
+- Real-time score predictions
+- Evaluation:
+  - R² Score (Goodness of Fit)
+  - Mean Absolute Error (MAE)
 
-Pickle (model serialization)
+---
 
-🔍 Project Workflow
 
-Fetch match data (from Cricksheet/YAML)
-
-Convert YAML to Pandas DataFrame
-
-Data Cleaning & Processing
-
-Exploratory Data Analysis (EDA)
-
-Train-Test Split
-
-Feature Engineering (OneHotEncoding, Scaling)
-
-Model Training using XGBoost
-
-Save model with Pickle
-
-Backend integration with Django
-
-Web UI for user input and live predictions
-
-📈 Results
-
-Functional UI for user input of match conditions
-
-Real-time output: Predicted T20 match score
-
-Evaluation Metrics:
-
-R² Score
-
-Mean Absolute Error (MAE)
-
-🚀 Future Scope
-
-Live Data Integration: Fetch real-time match data during live games.
-
-Support for ODIs and Tests: Expand beyond T20 format.
-
-Advanced Features: Include weather, player form, pitch reports.
-
-Mobile App: Build a mobile version of CricketPulse.
-
-🙌 Acknowledgements
-
-Thanks to faculty, peers, and open-source contributors for guidance and support throughout the development of CricketPulse.
 
